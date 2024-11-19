@@ -37,9 +37,27 @@ const calcAge3 = (birthYear) => 2037 - birthYear;
 const age3 = calcAge3(1991);
 console.log(age3);
 
-const yearsUntilRetirement = (birthYear) => {
+const yearsUntilRetirement = (birthYear, firstName = "Johnas") => {
   const age = 2037 - birthYear;
   const retirement = 65 - age;
-  return retirement;
+  return `${firstName} retires in ${retirement} years.`;
 };
-console.log(yearsUntilRetirement(1991));
+console.log(yearsUntilRetirement(1991, "Mirko"));
+console.log(yearsUntilRetirement(1980, "Bob"));
+
+// Koalas vs Dolphins arrow function
+const calcAverage = (first_score, second_score, third_score) =>
+  (first_score + second_score + third_score) / 3;
+let scoreDolphins = calcAverage();
+let scoreKoalas = calcAverage();
+
+function checkWinner(avgDolphins, avgKoalas) {
+  if (avgDolphins > avgKoalas * 2) {
+    console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+  } else if (avgKoalas > avgDolphins * 2) {
+    console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+  } else {
+    console.log("No team wins...");
+  }
+}
+checkWinner(scoreDolphins, scoreKoalas);
